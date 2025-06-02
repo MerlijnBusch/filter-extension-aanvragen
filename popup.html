@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demands Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Demands Viewer</h2>
+
+  <div style="display: flex; gap: 10px; margin-top: 8px;">
+    <!-- Division Dropdown -->
+    <div style="width: 300px">
+      <label for="division">Division:</label>
+      <select id="division" style="width: 100%;">
+        <option>Cloud & Development</option>
+        <option>Data & Integration Services</option>
+        <option>Digital Manufacturing</option>
+        <option>Diversen</option>
+        <option>Online Sales Support</option>
+        <option>Quality Engineering & Testing</option>
+        <option>Security & Technology Transformation</option>
+        <option>Staf/Management</option>
+      </select>
+    </div>
+
+    <!-- Min Grade -->
+    <div style="width: 60px;">
+      <label for="minGrade">Min</label>
+      <select id="minGrade" style="width: 100%;">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+      </select>
+    </div>
+
+    <!-- Max Grade -->
+    <div style="width: 60px;">
+      <label for="maxGrade">Max</label>
+      <select id="maxGrade" style="width: 100%;">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+      </select>
+    </div>
+  </div>
+
+
+
+  <!-- Separate filters -->
+  <div style="margin-top: 10px; width: 300px">
+    <label for="filterRole">Role:</label>
+    <input type="text" id="filterRole" placeholder="e.g. DevOps" style="width: 100%;">
+
+    <label for="filterCustomer">Customer:</label>
+    <input type="text" id="filterCustomer" placeholder="e.g. Rabobank" style="width: 100%;">
+
+    <label for="filterLocation">Working Location:</label>
+    <input type="text" id="filterLocation" placeholder="e.g. Utrecht" style="width: 100%;">
+
+    <label for="filterSkills">Requested Skills:</label>
+    <input type="text" id="filterSkills" placeholder="e.g. Python" style="width: 100%;">
+  </div>
+
+  <!-- Pagination -->
+  <div style="margin-top: 10px;">
+    <button id="prevPage">← Previous</button>
+    <span id="pageIndicator">Page 1</span>
+    <button id="nextPage">Next →</button>
+  </div>
+
+  <!-- Actions -->
+  <button id="sendRequest" style="margin-top: 10px;">Load Demands</button>
+  <button id="clearFilters" style="margin-top: 10px;">Clear Filters</button>
+
+  <!-- Output -->
+  <div id="output" class="table-container"></div>
+
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="ui.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Replay Authenticated Request",
+  "version": "1.0",
+  "permissions": ["scripting", "tabs", "storage"],
+  "host_permissions": [
+    "https://nldcasognlt3p.corp.capgemini.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
