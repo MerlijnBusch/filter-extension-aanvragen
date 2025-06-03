@@ -4,7 +4,6 @@
       body { font-family: Arial; padding: 16px; background: #f8f9fa; }
       label { font-weight: bold; display: block; margin-top: 10px; }
       input, select {
-        width: 100%;
         padding: 6px 8px;
         margin-top: 4px;
         border: 1px solid #ccc;
@@ -21,22 +20,64 @@
         cursor: pointer;
       }
       .table-container {
-        margin-top: 20px;
+        min-width: 1614px;
+        max-width: 1614px;
+        margin: 20px auto;
         max-height: 500px;
         overflow-y: auto;
+        background: white;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       }
+
       table {
         border-collapse: collapse;
-        width: 100%;
+        table-layout: fixed;
       }
+
       th, td {
         border: 1px solid #ccc;
-        padding: 8px;
         text-align: left;
+        word-wrap: break-word;
       }
+
+      .demand {
+        min-width: 100px;
+        max-width: 100px;
+      }
+      .customer {
+        min-width: 200px;
+        max-width: 200px;
+      }
+      .role {
+        min-width: 200px;
+        max-width: 200px;
+      }
+      .grade {
+        min-width: 100px;
+        max-width: 100px;
+      }
+      .start_date {
+        min-width: 100px;
+        max-width: 100px;
+      }
+      .location {
+        min-width: 150px;
+        max-width: 150px;
+      }
+      .community {
+        min-width: 250px;
+        max-width: 250px;
+      }
+      .skills {
+        min-width: 500px;
+        max-width: 500px;
+      }
+
       th {
         background: #e9ecef;
       }
+
     </style>
 
     <h2>Demands Viewer (Injected)</h2>
@@ -58,13 +99,19 @@
       <div style="width: 60px;">
         <label>Min</label>
         <select id="minGrade">
-          <option>A</option><option>B</option><option>C</option><option>D</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
         </select>
       </div>
       <div style="width: 60px;">
         <label>Max</label>
         <select id="maxGrade">
-          <option>A</option><option>B</option><option>C</option><option>D</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
         </select>
       </div>
     </div>

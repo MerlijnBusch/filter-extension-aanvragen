@@ -5,21 +5,24 @@ function formatDate(obj) {
 }
 
 function generateTable(data) {
-  const headers = ["Demand #", "Customer", "Role", "Grade", "Start Date", "Location", "Community", "Skills"];
+  const headers = ["Demand", "Customer", "Role", "Grade", "Start Date", "Location", "Community", "Skills"];
   let html = "<table><thead><tr>";
-  headers.forEach(h => html += `<th>${h}</th>`);
+  headers.forEach(h => {
+      headerClass = h.toLowerCase().replace(" ", "_");
+      html += `<th class="${headerClass}">${h}</th>`;
+  });
   html += "</tr></thead><tbody>";
 
   data.forEach(d => {
     html += `<tr class="clickable-row" data-id="${d.id}">`;
-    html += `<td>${d.demandNumber}</td>`;
-    html += `<td>${d.customer}</td>`;
-    html += `<td>${d.role}</td>`;
-    html += `<td>${d.grade}</td>`;
-    html += `<td>${formatDate(d.startDate)}</td>`;
-    html += `<td>${d.workingLocation}</td>`;
-    html += `<td>${d.community}</td>`;
-    html += `<td>${(d.requestedSkills || []).join(", ")}</td>`;
+    html += `<td class="demand">${d.demandNumber}</td>`;
+    html += `<td class="customer">${d.customer}</td>`;
+    html += `<td class="role">${d.role}</td>`;
+    html += `<td class="grade">${d.grade}</td>`;
+    html += `<td class="start_date">${formatDate(d.startDate)}</td>`;
+    html += `<td class="location">${d.workingLocation}</td>`;
+    html += `<td class="community">${d.community}</td>`;
+    html += `<td class="skills">${(d.requestedSkills || []).join(", ")}</td>`;
     html += "</tr>";
   });
 
