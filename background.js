@@ -10,3 +10,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       return true; // ⬅️ keep message channel open for async
     }
   });
+
+
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  if (msg.action === "injectOverwriteScript") {
+    chrome.scripting.executeScript({
+      target: { tabId: msg.tabId },
+      files: ["inject.js"]
+    });
+  }
+});

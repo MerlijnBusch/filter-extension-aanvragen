@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Replay Authenticated Request",
+  "name": "Demand Viewer",
   "version": "1.0",
-  "permissions": ["scripting", "tabs", "storage"],
+  "permissions": ["activeTab", "scripting"],
   "host_permissions": [
     "https://nldcasognlt3p.corp.capgemini.com/*"
   ],
@@ -11,5 +11,16 @@
   },
   "background": {
     "service_worker": "background.js"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "config.js",
+        "api.js",
+        "ui.js",
+        "logic.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
