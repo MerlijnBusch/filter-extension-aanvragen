@@ -32,7 +32,7 @@ function attachRowClickHandlers() {
     row.addEventListener("click", () => {
       const id = row.getAttribute("data-id");
       const detailUrl = `${CONFIG.DETAIL_URL_BASE}${id}`;
-      chrome.tabs.create({ url: detailUrl });
+      window.open(detailUrl, "_blank");
     });
   });
 }
