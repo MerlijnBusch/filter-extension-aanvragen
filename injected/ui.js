@@ -5,35 +5,54 @@ function formatDate(obj) {
 }
 
 function generateTable(data) {
-  const headers = ["Demand", "Customer", "Role", "Grade", "Start Date", "Location", "Community", "Skills"];
-  let html = "<table><thead><tr>";
-  headers.forEach(h => {
-      headerClass = h.toLowerCase().replace(" ", "_");
-      html += `<th class="${headerClass}">${h}</th>`;
-  });
-  html += "</tr></thead><tbody>";
+  const headers = [
+    "Demand", "Customer", "Role", "Grade",
+    "Start Date", "Location", "Community", "Skills"
+  ];
 
-  data.forEach(d => {
-    html += `<tr class="clickable-row" data-id="${d.id}">`;
-    html += `<td class="demand">${d.demandNumber}</td>`;
-    html += `<td class="customer">${d.customer}</td>`;
-    html += `<td class="role">${d.role}</td>`;
-    html += `<td class="grade">${d.grade}</td>`;
-    html += `<td class="start_date">${formatDate(d.startDate)}</td>`;
-    html += `<td class="location">${d.workingLocation}</td>`;
-    html += `<td class="community">${d.community}</td>`;
-    html += `<td class="skills">${(d.requestedSkills || []).join(", ")}</td>`;
-    html += "</tr>";
-  });
+  const createHeaderRow = () => {
+    return headers.map(header => {
+      const headerClass = header.toLowerCase().replace(/\s+/g, "_");
+      return `<th class="${headerClass}">${header}</th>`;
+    }).join("");
+  };
 
-  html += "</tbody></table>";
-  return html;
+  const createDataRow = (d) => {
+    const skills = (d.requestedSkills || []).join(", ");
+    return `
+      <tr class="clickable-row" data-id="${d.id}">
+        <td class="demand">${d.demandNumber}</td>
+        <td class="customer">${d.customer}</td>
+        <td class="role">${d.role}</td>
+        <td class="grade">${d.grade}</td>
+        <td class="start_date">${formatDate(d.startDate)}</td>
+        <td class="location">${d.workingLocation}</td>
+        <td class="community">${d.community}</td>
+        <td class="skills">${skills}</td>
+      </tr>
+    `;
+  };
+
+  const tableHTML = `
+    <table>
+      <tbody>
+        <tr>${createHeaderRow()}</tr>
+        ${data.map(createDataRow).join("")}
+      </tbody>
+    </table>
+  `;
+
+  return tableHTML.trim();
 }
 
 function attachRowClickHandlers() {
-  document.querySelectorAll(".clickable-row").forEach(row => {
+  const rows = document.querySelectorAll(".clickable-row");
+
+  rows.forEach(row => {
     row.addEventListener("click", () => {
-      const id = row.getAttribute("data-id");
+      const id = row.dataset.id;
+      if (!id) return;
+
       const detailUrl = `${CONFIG.DETAIL_URL_BASE}${id}`;
       window.open(detailUrl, "_blank");
     });

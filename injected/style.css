@@ -1,95 +1,130 @@
 body {
-    font-family: Arial;
-    padding: 16px;
-    background: #f8f9fa;
-  }
+ font-family: Arial;
+ padding: 16px;
+ background: #f8f9fa;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
 
-  label {
+label {
     font-weight: bold;
     display: block;
     margin-top: 10px;
-  }
+}
 
-  input, select {
+input, select {
     padding: 6px 8px;
     margin-top: 4px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
+}
 
-  button {
+button {
     padding: 6px 12px;
     margin-top: 10px;
-    margin-right: 6px;
     border: none;
     border-radius: 4px;
     background-color: #007bff;
     color: white;
     cursor: pointer;
-  }
+}
 
-  .table-container {
-    min-width: 1614px;
-    max-width: 1614px;
+.table-container {
+    width: 90%;
     margin: 20px auto;
-    max-height: 500px;
+    overflow-x: auto;
     overflow-y: auto;
     background: white;
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  table {
+table {
     border-collapse: collapse;
     table-layout: fixed;
-  }
+}
 
-  th, td {
+th, td {
     border: 1px solid #ccc;
     text-align: left;
     word-wrap: break-word;
-  }
+}
 
-  .demand {
+.demand {
     min-width: 100px;
     max-width: 100px;
-  }
+}
 
-  .customer {
+.customer {
     min-width: 200px;
     max-width: 200px;
-  }
+}
 
-  .role {
+.role {
     min-width: 200px;
     max-width: 200px;
-  }
+}
 
-  .grade {
+.grade {
     min-width: 100px;
     max-width: 100px;
-  }
+}
 
-  .start_date {
+.start_date {
     min-width: 100px;
     max-width: 100px;
-  }
+}
 
-  .location {
+.location {
     min-width: 150px;
     max-width: 150px;
-  }
+}
 
-  .community {
+.community {
     min-width: 250px;
     max-width: 250px;
-  }
+}
 
-  .skills {
+.skills {
     min-width: 500px;
     max-width: 500px;
-  }
+}
 
-  th {
+th {
     background: #e9ecef;
-  }
+}
+
+.form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    max-width: 620px; /* of 2 x 300px + gap */
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    flex: 1 1 200px;
+}
+
+.form-block {
+    max-width: 300px;
+    flex: 0 0 300px;
+}
+
+.pagination-bar-container {
+    max-width: 616px; /* zelfde als .form-grid */
+    width: 100%;
+    margin-top: 16px;
+}
+
+.pagination-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
