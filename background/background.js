@@ -16,7 +16,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.action === "injectOverwriteScript") {
     chrome.scripting.executeScript({
       target: { tabId: msg.tabId },
-      files: ["inject.js"]
+      files: ["injected/inject.js"]
     });
   }
 });

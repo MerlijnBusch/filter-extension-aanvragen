@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Demand Viewer",
+  "name": "Capgemini Demands Viewer",
   "version": "1.0",
+  "description": "View and filter Capgemini demand data in a popup or injected page.",
   "permissions": [
     "activeTab",
     "scripting",
@@ -11,28 +12,36 @@
     "https://nldcasognlt3p.corp.capgemini.com/*"
   ],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup/popup.html"
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background/background.js"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content/content.js"
+      ],
       "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
     {
       "resources": [
+        "injected/inject.js",
         "config.js",
-        "api.js",
-        "ui.js",
-        "logic.js",
-        "profile.js"
+        "injected/api.js",
+        "injected/ui.js",
+        "injected/logic.js",
+        "injected/profile.js",
+        "injected/style.css"
       ],
-      "matches": ["<all_urls>"]
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ]
 }

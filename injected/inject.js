@@ -1,85 +1,10 @@
 (async function () {
+  const style = document.createElement("link");
+  style.rel = "stylesheet";
+  style.href = chrome.runtime.getURL("injected/style.css");
+  document.head.appendChild(style);
+
   document.body.innerHTML = `
-    <style>
-      body { font-family: Arial; padding: 16px; background: #f8f9fa; }
-      label { font-weight: bold; display: block; margin-top: 10px; }
-      input, select {
-        padding: 6px 8px;
-        margin-top: 4px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-      button {
-        padding: 6px 12px;
-        margin-top: 10px;
-        margin-right: 6px;
-        border: none;
-        border-radius: 4px;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-      }
-      .table-container {
-        min-width: 1614px;
-        max-width: 1614px;
-        margin: 20px auto;
-        max-height: 500px;
-        overflow-y: auto;
-        background: white;
-        border-radius: 6px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      table {
-        border-collapse: collapse;
-        table-layout: fixed;
-      }
-
-      th, td {
-        border: 1px solid #ccc;
-        text-align: left;
-        word-wrap: break-word;
-      }
-
-      .demand {
-        min-width: 100px;
-        max-width: 100px;
-      }
-      .customer {
-        min-width: 200px;
-        max-width: 200px;
-      }
-      .role {
-        min-width: 200px;
-        max-width: 200px;
-      }
-      .grade {
-        min-width: 100px;
-        max-width: 100px;
-      }
-      .start_date {
-        min-width: 100px;
-        max-width: 100px;
-      }
-      .location {
-        min-width: 150px;
-        max-width: 150px;
-      }
-      .community {
-        min-width: 250px;
-        max-width: 250px;
-      }
-      .skills {
-        min-width: 500px;
-        max-width: 500px;
-      }
-
-      th {
-        background: #e9ecef;
-      }
-
-    </style>
-
     <h2>Demands Viewer (Injected)</h2>
 
     <div style="margin-top: 10px;">
@@ -149,8 +74,14 @@
     <div id="output" class="table-container"></div>
   `;
 
-  // Dynamically load script files
-  const scripts = ["config.js", "api.js", "ui.js", "logic.js", "profile.js"];
+  const scripts = [
+    "config.js",
+    "injected/api.js",
+    "injected/ui.js",
+    "injected/logic.js",
+    "injected/profile.js"
+  ];
+
   for (const src of scripts) {
     await new Promise(resolve => {
       const s = document.createElement("script");
