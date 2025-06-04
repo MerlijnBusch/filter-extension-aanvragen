@@ -2,7 +2,11 @@
   "manifest_version": 3,
   "name": "Demand Viewer",
   "version": "1.0",
-  "permissions": ["activeTab", "scripting"],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
   "host_permissions": [
     "https://nldcasognlt3p.corp.capgemini.com/*"
   ],
@@ -12,13 +16,21 @@
   "background": {
     "service_worker": "background.js"
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
   "web_accessible_resources": [
     {
       "resources": [
         "config.js",
         "api.js",
         "ui.js",
-        "logic.js"
+        "logic.js",
+        "profile.js"
       ],
       "matches": ["<all_urls>"]
     }

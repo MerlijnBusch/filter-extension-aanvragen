@@ -82,6 +82,14 @@
 
     <h2>Demands Viewer (Injected)</h2>
 
+    <div style="margin-top: 10px;">
+      <label>Profile</label>
+      <select id="profileSelect" style="width: 200px;"></select>
+      <button id="saveProfile">Save</button>
+      <button id="loadProfile">Load</button>
+      <button id="deleteProfile">Delete</button>
+    </div>
+
     <div style="display: flex; gap: 10px;">
       <div style="width: 300px;">
         <label>Division</label>
@@ -142,7 +150,7 @@
   `;
 
   // Dynamically load script files
-  const scripts = ["config.js", "api.js", "ui.js", "logic.js"];
+  const scripts = ["config.js", "api.js", "ui.js", "logic.js", "profile.js"];
   for (const src of scripts) {
     await new Promise(resolve => {
       const s = document.createElement("script");
@@ -152,7 +160,6 @@
     })
   }
 
-  // Dispatch custom events instead of direct logic calls
   document.getElementById("sendRequest").addEventListener("click", () => {
     window.dispatchEvent(new Event("loadDemands"));
   });
@@ -169,14 +176,5 @@
     window.dispatchEvent(new Event("clearFilters"));
   });
 
-  // Initial auto-load
   window.dispatchEvent(new Event("loadDemands"));
-
-  console.log(window.window.fetchAndRenderDemands())
-//  setInterval(() => {
-//    if (typeof window.setupFilterEvents === "function") {
-//      window.setupFilterEvents();
-//      window.fetchAndRenderDemands();
-//    }
-//  }, 100);
 })();
