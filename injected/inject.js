@@ -49,34 +49,38 @@
   </div>
 </div>
 
+<details closed>
+  <summary style="font-weight: bold; font-size: 1.1em; margin-bottom: 8px;">Filters</summary>
+
+  <div class="form-grid">
+    <div class="form-group form-block">
+      <label>Customer</label>
+      <input type="text" id="filterCustomer" placeholder="e.g. Rabobank" style="width: 100%;">
+      <label>Role</label>
+      <input type="text" id="filterRole" placeholder="e.g. DevOps" style="width: 100%;">
+    </div>
+
+    <div class="form-group form-block">
+      <label>Working Location</label>
+      <input type="text" id="filterLocation" placeholder="e.g. Utrecht" style="width: 100%;">
+      <label>Skills</label>
+      <input type="text" id="filterSkills" placeholder="e.g. Python" style="width: 100%;">
+    </div>
+  </div>
+</details>
+
+
 <div class="form-grid">
-  <div class="form-group form-block">
-    <label>Customer</label>
-    <input type="text" id="filterCustomer" placeholder="e.g. Rabobank" style="width: 100%;">
-    <label>Role</label>
-    <input type="text" id="filterRole" placeholder="e.g. DevOps" style="width: 100%;">
-  </div>
+    <div class="form-group form-block">
+      <label>&nbsp;</label>
+      <button id="sendRequest" style="width: 100%;">Load Demands</button>
+    </div>
 
-  <div class="form-group form-block">
-    <label>Working Location</label>
-    <input type="text" id="filterLocation" placeholder="e.g. Utrecht" style="width: 100%;">
-    <label>Skills</label>
-    <input type="text" id="filterSkills" placeholder="e.g. Python" style="width: 100%;">
-  </div>
+    <div class="form-group form-block">
+      <label>&nbsp;</label>
+      <button id="clearFilters" style="width: 100%; margin-top: 8px;">Clear Filters</button>
+    </div>
 </div>
-
-<div class="form-grid">
-  <div class="form-group form-block">
-    <label>&nbsp;</label>
-    <button id="sendRequest" style="width: 100%;">Load Demands</button>
-  </div>
-
-  <div class="form-group form-block">
-    <label>&nbsp;</label>
-    <button id="clearFilters" style="width: 100%; margin-top: 8px;">Clear Filters</button>
-  </div>
-</div>
-
 <div class="pagination-bar-container">
   <div class="pagination-bar">
     <button id="prevPage" style="width: 200px;">← Previous</button>

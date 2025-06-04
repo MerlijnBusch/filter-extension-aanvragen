@@ -1,10 +1,10 @@
 body {
- font-family: Arial;
- padding: 16px;
- background: #f8f9fa;
- display: flex;
- flex-direction: column;
- align-items: center;
+    font-family: Arial;
+    padding: 16px;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 label {
@@ -43,6 +43,7 @@ button {
 table {
     border-collapse: collapse;
     table-layout: fixed;
+    max-height: 800px;
 }
 
 th, td {
@@ -53,42 +54,34 @@ th, td {
 
 .demand {
     min-width: 100px;
-    max-width: 100px;
 }
 
 .customer {
     min-width: 200px;
-    max-width: 200px;
 }
 
 .role {
     min-width: 200px;
-    max-width: 200px;
 }
 
 .grade {
     min-width: 100px;
-    max-width: 100px;
 }
 
 .start_date {
     min-width: 100px;
-    max-width: 100px;
 }
 
 .location {
     min-width: 150px;
-    max-width: 150px;
 }
 
 .community {
     min-width: 250px;
-    max-width: 250px;
 }
 
 .skills {
     min-width: 500px;
-    max-width: 500px;
 }
 
 th {
@@ -128,3 +121,18 @@ th {
     width: 100%;
 }
 
+details {
+    width: 100%;
+    max-width: 620px; /* of wat je ook gebruikt voor .form-grid */
+    margin: 0 auto;
+}
+
+summary {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 20px 0 0 0;
+    border-bottom: 1px solid #ccc; /* light gray line */
+    margin-bottom: 16px;
+    text-align: left;
+    list-style: none;
+}
