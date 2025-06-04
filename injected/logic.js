@@ -9,8 +9,11 @@ window.addEventListener("loadDemands", () => {
 });
 
 window.addEventListener("nextPage", () => {
-  window.currentPage++;
-  window.renderFilteredTable();
+  const totalPages = Math.ceil(window.allDemands.length / window.itemsPerPage);
+  if (window.currentPage < totalPages) {
+    window.currentPage++;
+    window.renderFilteredTable();
+  }
 });
 
 window.addEventListener("prevPage", () => {

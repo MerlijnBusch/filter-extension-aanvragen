@@ -5,92 +5,83 @@
     document.head.appendChild(style);
 
     document.body.innerHTML = `
-    <h1>Mijn Aanvragen 2.0</h1>
-
-<div class="form-grid">
-  <div class="form-group form-block">
-    <label>Profile</label>
-    <select id="profileSelect" style="width: 100%;"></select>
-    <div style="display: flex; gap: 8px; margin-top: 8px; width: 100%;">
-      <button id="saveProfile" style="flex: 1;">Save</button>
-      <button id="loadProfile" style="flex: 1;">Load</button>
-      <button id="deleteProfile" style="flex: 1;">Delete</button>
-    </div>
-  </div>
-
-  <div class="form-group form-block">
-    <label>Division</label>
-    <select id="division" style="width: 100%;">
-      <option>Cloud & Development</option>
-      <option>Data & Integration Services</option>
-      <option>Digital Manufacturing</option>
-      <option>Diversen</option>
-      <option>Online Sales Support</option>
-      <option>Quality Engineering & Testing</option>
-      <option>Security & Technology Transformation</option>
-      <option>Staf/Management</option>
-    </select>
-    <div style="display: flex; gap: 8px; margin-top: 8px; width: 100%;">
-      <select id="minGrade" style="flex: 1;">
-        <option value="" disabled selected> Min Grade</option>
-        <option>A</option>
-        <option>B</option>
-        <option>C</option>
-        <option>D</option>
-      </select>
-      <select id="maxGrade" style="flex: 1;">
-        <option value="" disabled selected> Max Grade</option>
-        <option>A</option>
-        <option>B</option>
-        <option>C</option>
-        <option>D</option>
-      </select>
-    </div>
-  </div>
-</div>
-
-<details closed>
-  <summary style="font-weight: bold; font-size: 1.1em; margin-bottom: 8px;">Filters</summary>
-
+  <h1>Mijn Aanvragen 2.0</h1>
   <div class="form-grid">
     <div class="form-group form-block">
-      <label>Customer</label>
-      <input type="text" id="filterCustomer" placeholder="e.g. Rabobank" style="width: 100%;">
-      <label>Role</label>
-      <input type="text" id="filterRole" placeholder="e.g. DevOps" style="width: 100%;">
+      <label>Profile</label>
+      <select id="profileSelect" class="full-width"></select>
+      <div class="flex-row">
+        <button id="saveProfile" class="flex-1">Save</button>
+        <button id="loadProfile" class="flex-1">Load</button>
+        <button id="deleteProfile" class="flex-1">Delete</button>
+      </div>
     </div>
-
     <div class="form-group form-block">
-      <label>Working Location</label>
-      <input type="text" id="filterLocation" placeholder="e.g. Utrecht" style="width: 100%;">
-      <label>Skills</label>
-      <input type="text" id="filterSkills" placeholder="e.g. Python" style="width: 100%;">
+      <label>Division</label>
+      <select id="division" class="full-width">
+        <option>Cloud & Development</option>
+        <option>Data & Integration Services</option>
+        <option>Digital Manufacturing</option>
+        <option>Diversen</option>
+        <option>Online Sales Support</option>
+        <option>Quality Engineering & Testing</option>
+        <option>Security & Technology Transformation</option>
+        <option>Staf/Management</option>
+      </select>
+      <div class="flex-row">
+        <select id="minGrade" class="flex-1">
+          <option value="" disabled selected> Min Grade</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
+        </select>
+        <select id="maxGrade" class="flex-1">
+          <option value="" disabled selected> Max Grade</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
+        </select>
+      </div>
     </div>
   </div>
-</details>
-
-
-<div class="form-grid">
+  <details closed>
+    <summary class="bold-1-1em">Filters</summary>
+    <div class="form-grid">
+      <div class="form-group form-block">
+        <label>Customer</label>
+        <input type="text" id="filterCustomer" placeholder="e.g. Rabobank" class="full-width">
+        <label>Role</label>
+        <input type="text" id="filterRole" placeholder="e.g. DevOps" class="full-width">
+      </div>
+      <div class="form-group form-block">
+        <label>Working Location</label>
+        <input type="text" id="filterLocation" placeholder="e.g. Utrecht" class="full-width">
+        <label>Skills</label>
+        <input type="text" id="filterSkills" placeholder="e.g. Python" class="full-width">
+      </div>
+    </div>
+  </details>
+  <div class="form-grid">
     <div class="form-group form-block">
       <label>&nbsp;</label>
-      <button id="sendRequest" style="width: 100%;">Load Demands</button>
+      <button id="sendRequest" class="full-width">Load Demands</button>
     </div>
-
     <div class="form-group form-block">
       <label>&nbsp;</label>
-      <button id="clearFilters" style="width: 100%; margin-top: 8px;">Clear Filters</button>
+      <button id="clearFilters" class="full-width mt-8">Clear Filters</button>
     </div>
-</div>
-<div class="pagination-bar-container">
-  <div class="pagination-bar">
-    <button id="prevPage" style="width: 200px;">← Previous</button>
-    <span id="pageIndicator" style="margin: 0 auto;">Page 1 of X</span>
-    <button id="nextPage" style="width: 200px;">Next →</button>
   </div>
-</div>
-
-<div id="output" class="table-container"></div>
-  `;
+  <div class="pagination-bar-container">
+    <div class="pagination-bar">
+      <button id="prevPage" class="wide-btn">← Previous</button>
+      <span id="pageIndicator" class="centered">Page 1 of X</span>
+      <button id="nextPage" class="wide-btn">Next →</button>
+    </div>
+  </div>
+  <div id="output" class="table-container"></div>
+`;
 
     const scripts = [
         "config.js",
