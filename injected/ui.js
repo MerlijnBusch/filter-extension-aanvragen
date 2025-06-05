@@ -20,9 +20,15 @@ const OFFER_STATUS_LABELS = [
 
 function generateTable(data) {
     const headers = [
-        "Demand", "Customer", "Role", "Grade",
-        "Start Date", "Location", "Community", "Skills",
-        "Status", "MAB"
+        "Status",
+        "MAB",
+        "Community",
+        "Customer",
+        "Role",
+        "Grade",
+        "Location",
+        "Start Date",
+        "Skills",
     ];
 
     const createHeaderRow = () => {
@@ -37,16 +43,15 @@ function generateTable(data) {
 
         return `
       <tr class="clickable-row" data-id="${d.id}">
-        <td class="demand">${d.demandNumber}</td>
+        <td class="status">${OFFER_STATUS_LABELS[d.offerStatus] ?? "Onbekend"}</td>
+        <td class="mab">${d.mabSent}</td>
+        <td class="community">${d.community}</td>
         <td class="customer">${d.customer}</td>
         <td class="role">${d.role}</td>
         <td class="grade">${d.grade}</td>
-        <td class="start_date">${formatDate(d.startDate)}</td>
         <td class="location">${d.workingLocation}</td>
-        <td class="community">${d.community}</td>
+        <td class="start_date">${formatDate(d.startDate)}</td>
         <td class="skills">${skills}</td>
-        <td class="status">${OFFER_STATUS_LABELS[d.offerStatus] ?? "Onbekend"}</td>
-        <td class="mab">${d.mabSent}</td>
       </tr>
     `;
     };
