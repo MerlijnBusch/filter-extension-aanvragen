@@ -7,7 +7,8 @@ function formatDate(obj) {
 function generateTable(data) {
   const headers = [
     "Demand", "Customer", "Role", "Grade",
-    "Start Date", "Location", "Community", "Skills"
+    "Start Date", "Location", "Community", "Skills",
+    "Status", "MAB"
   ];
 
   const createHeaderRow = () => {
@@ -29,10 +30,13 @@ function generateTable(data) {
         <td class="location">${d.workingLocation}</td>
         <td class="community">${d.community}</td>
         <td class="skills">${skills}</td>
+        <td class="status">${d.offerStatus}</td>
+        <td class="mab">${d.mabSent}</td>
       </tr>
     `;
   };
 
+  console.log(data)
   const tableHTML = `
     <table>
       <tbody>
@@ -66,6 +70,7 @@ function renderFilteredTable() {
   const skillsFilter = document.getElementById("filterSkills").value.toLowerCase();
 
   const filtered = allDemands.filter(d => {
+    console.log(d)
     const roleMatch = d.role?.toLowerCase().includes(roleFilter);
     const customerMatch = d.customer?.toLowerCase().includes(customerFilter);
     const locationMatch = d.workingLocation?.toLowerCase().includes(locationFilter);

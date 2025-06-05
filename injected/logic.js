@@ -40,23 +40,79 @@ document.querySelectorAll(
     window.renderFilteredTable();
   });
 });
+
+window.requestBearerToken = function () {
+  return new Promise((resolve, reject) => {
+    const timeout = setTimeout(() => {
+      reject(new Error("Token request timed out"));
+    }, 2000); // timeout in case no response
+
+    function handleTokenResponse(event) {
+      if (event.source !== window || event.data?.type !== "tokenResponse") return;
+      window.removeEventListener("message", handleTokenResponse);
+      clearTimeout(timeout);
+      resolve(event.data.token);
+    }
+
+    window.addEventListener("message", handleTokenResponse);
+
+    window.postMessage({ type: "getToken" }, "*");
+  });
+};
+
+
+//window.fetchAndRenderDemands = function () {
+//  console.log("test")
+//  const division = document.getElementById("division").value;
+//  const minGrade = document.getElementById("minGrade").value;
+//  const maxGrade = document.getElementById("maxGrade").value;
+//  const url = window.buildDemandUrl(division, minGrade, maxGrade, 1, 200);
+//
+//  console.log("test")
+//  for (let i = 0; i < localStorage.length; i++) {
+//    const key = localStorage.key(i);
+//    console.log(key, localStorage.getItem(key));
+//  }
+//
+//  fetch(url, {credentials: "include"})
+//    .then(res => res.json())
+//    .then(data => {
+//      console.log(data)
+//      window.allDemands = data.demands || [];
+//      window.currentPage = 1;
+//      window.renderFilteredTable();
+//    })
+//    .catch(error => {
+//      document.getElementById("output").textContent = `Error: ${error.message}`;
+//    });
 //};
 
 window.fetchAndRenderDemands = function () {
-  console.log("test")
   const division = document.getElementById("division").value;
   const minGrade = document.getElementById("minGrade").value;
   const maxGrade = document.getElementById("maxGrade").value;
   const url = window.buildDemandUrl(division, minGrade, maxGrade, 1, 200);
 
-  fetch(url, {credentials: "include"})
+  window.requestBearerToken()
+    .then(token => {
+      if (!token) throw new Error("No token available");
+
+      return fetch(url, {
+        headers: {
+          Authorization: token,
+          Accept: "application/json"
+        }
+      });
+    })
     .then(res => res.json())
     .then(data => {
+      console.log("✅ Data received:", data);
       window.allDemands = data.demands || [];
       window.currentPage = 1;
       window.renderFilteredTable();
     })
     .catch(error => {
+      console.error("❌ Error:", error);
       document.getElementById("output").textContent = `Error: ${error.message}`;
     });
 };

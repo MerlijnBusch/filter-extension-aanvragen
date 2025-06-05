@@ -43,3 +43,15 @@ window.addEventListener("message", async (event) => {
     }
   }
 });
+
+window.addEventListener("message", (event) => {
+  if (event.source !== window || event.data?.type !== "getToken") return;
+
+  chrome.storage.local.get(['bearerToken'], ({ bearerToken }) => {
+    window.postMessage({
+      type: "tokenResponse",
+      token: bearerToken || null
+    }, "*");
+  });
+});
+

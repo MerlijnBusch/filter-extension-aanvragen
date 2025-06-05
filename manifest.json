@@ -4,13 +4,15 @@
   "version": "1.0",
   "description": "View and filter Capgemini demand data in a popup or injected page.",
   "permissions": [
-    "activeTab",
     "declarativeContent",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
     "scripting",
-    "storage"
+    "activeTab"
   ],
   "host_permissions": [
-    "https://nldcasognlt3p.corp.capgemini.com/*"
+    "*://nldcasognlt3p.corp.capgemini.com/*"
   ],
   "action": {
     "default_popup": "popup/popup.html"
@@ -20,12 +22,8 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "content/content.js"
-      ],
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"],
       "run_at": "document_start"
     }
   ],
@@ -40,9 +38,7 @@
         "injected/profile.js",
         "injected/style.css"
       ],
-      "matches": [
-        "<all_urls>"
-      ]
+      "matches": ["<all_urls>"]
     }
   ]
 }

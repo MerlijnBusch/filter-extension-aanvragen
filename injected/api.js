@@ -9,9 +9,8 @@ function buildDemandUrl(division, minGrade, maxGrade, pageNumber, itemsPerPage) 
     : gradeOrder.slice(maxIndex, minIndex + 1);
 
   const sorting = [
-    "demandDate desc", "demandNumber desc", "role desc", "customer desc",
+    "offerStatus asc", "mabSent asc ", "demandDate desc", "demandNumber desc", "role desc", "customer desc",
     "workingLocation desc", "grade desc", "startDate desc", "dlcCode desc",
-    "offerStatus desc", "mabSent desc"
   ];
 
   const params = new URLSearchParams();
