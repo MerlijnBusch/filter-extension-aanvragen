@@ -5,6 +5,7 @@
   "description": "View and filter Capgemini demand data in a popup or injected page.",
   "permissions": [
     "activeTab",
+    "declarativeContent",
     "scripting",
     "storage"
   ],
