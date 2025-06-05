@@ -85,8 +85,8 @@ function renderFilteredTable() {
     const customerFilter = document.getElementById("filterCustomer").value.toLowerCase();
     const locationFilter = document.getElementById("filterLocation").value.toLowerCase();
     const skillsFilter = document.getElementById("filterSkills").value.toLowerCase();
-    const mabFilter = document.getElementById("filterMab").value; // "true", "false", or ""
-    const offerStatusFilter = document.getElementById("filterOfferStatus").value; // "0" to "10" or ""
+    const mabFilter = document.getElementById("filterMab").value;
+    const offerStatusFilter = document.getElementById("filterOfferStatus").value;
 
     const filtered = allDemands.filter(d => {
         const roleMatch = d.role?.toLowerCase().includes(roleFilter);

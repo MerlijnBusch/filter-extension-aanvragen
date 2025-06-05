@@ -5,7 +5,7 @@
     document.head.appendChild(style);
 
     document.body.innerHTML = `
-  <h1>Mijn Aanvragen 2.0</h1>
+  <h1>MijnAanvragen 2.0</h1>
   <div class="form-grid">
     <div class="form-group form-block">
       <label>Profile</label>
