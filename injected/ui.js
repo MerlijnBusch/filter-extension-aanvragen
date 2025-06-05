@@ -39,8 +39,6 @@ function generateTable(data) {
     };
 
     const createDataRow = (d) => {
-        const skills = (d.requestedSkills || []).join(", ");
-
         return `
       <tr class="clickable-row" data-id="${d.id}">
         <td class="status">${OFFER_STATUS_LABELS[d.offerStatus] ?? "Onbekend"}</td>
@@ -51,7 +49,7 @@ function generateTable(data) {
         <td class="grade">${d.grade}</td>
         <td class="location">${d.workingLocation}</td>
         <td class="start_date">${formatDate(d.startDate)}</td>
-        <td class="skills">${skills}</td>
+        <td class="skills">${(d.requestedSkills || []).join(", ")}</td>
       </tr>
     `;
     };
