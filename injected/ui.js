@@ -56,7 +56,6 @@ function generateTable(data) {
     `;
     };
 
-    console.log(data)
     const tableHTML = `
     <table>
       <tbody>
