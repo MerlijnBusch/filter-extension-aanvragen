@@ -61,6 +61,32 @@
         <label>Skills</label>
         <input type="text" id="filterSkills" placeholder="e.g. Python" class="full-width">
       </div>
+
+      <div class="form-group form-block">
+        <label for="offerStatus">Offer Status</label>
+        <select id="filterOfferStatus" class="flex-1">
+          <option value="">-- Geen filter --</option>
+          <option value="0">Onbekend</option>
+          <option value="1">Niet aangeboden</option>
+          <option value="2">Afgewezen</option>
+          <option value="3">Elders ingezet</option>
+          <option value="4">Aangeboden aan sales</option>
+          <option value="5">Aangeboden aan klant</option>
+          <option value="6">Exclusief gereserveerd</option>
+          <option value="7">Gereserveerd</option>
+          <option value="8">Intake gepland</option>
+          <option value="9">Ingezet</option>
+          <option value="10">Vervallen</option>
+        </select>
+
+        <label for="filterMab">MAB</label>
+        <select id="filterMab" class="flex-1">
+          <option value="">--</option>
+          <option value="true">Ja</option>
+          <option value="false">Nee</option>
+        </select>
+      </div>
+
     </div>
   </details>
   <div class="form-grid">

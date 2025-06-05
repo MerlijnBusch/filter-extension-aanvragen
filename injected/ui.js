@@ -85,14 +85,19 @@ function renderFilteredTable() {
     const customerFilter = document.getElementById("filterCustomer").value.toLowerCase();
     const locationFilter = document.getElementById("filterLocation").value.toLowerCase();
     const skillsFilter = document.getElementById("filterSkills").value.toLowerCase();
+    const mabFilter = document.getElementById("filterMab").value; // "true", "false", or ""
+    const offerStatusFilter = document.getElementById("filterOfferStatus").value; // "0" to "10" or ""
 
     const filtered = allDemands.filter(d => {
-        console.log(d)
         const roleMatch = d.role?.toLowerCase().includes(roleFilter);
         const customerMatch = d.customer?.toLowerCase().includes(customerFilter);
         const locationMatch = d.workingLocation?.toLowerCase().includes(locationFilter);
         const skillsMatch = d.requestedSkills?.join(" ").toLowerCase().includes(skillsFilter);
-        return roleMatch && customerMatch && locationMatch && skillsMatch;
+
+        const mabMatch = !mabFilter || String(d.mabSent) === mabFilter;
+        const offerStatusMatch = !offerStatusFilter || String(d.offerStatus) === offerStatusFilter;
+
+        return roleMatch && customerMatch && locationMatch && skillsMatch && mabMatch && offerStatusMatch;
     });
 
     const totalPages = Math.max(1, Math.ceil(filtered.length / itemsPerPage));

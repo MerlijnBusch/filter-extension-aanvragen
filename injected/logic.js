@@ -33,7 +33,7 @@ window.addEventListener("clearFilters", () => {
 });
 
 document.querySelectorAll(
-  '#filterRole, #filterCustomer, #filterLocation, #filterSkills, #division, #minGrade, #maxGrade'
+  '#filterRole, #filterCustomer, #filterLocation, #filterSkills, #division, #minGrade, #maxGrade, #filterOfferStatus, #filterMab'
 ).forEach(input => {
   input.addEventListener("input", () => {
     window.currentPage = 1;
@@ -59,33 +59,6 @@ window.requestBearerToken = function () {
     window.postMessage({ type: "getToken" }, "*");
   });
 };
-
-
-//window.fetchAndRenderDemands = function () {
-//  console.log("test")
-//  const division = document.getElementById("division").value;
-//  const minGrade = document.getElementById("minGrade").value;
-//  const maxGrade = document.getElementById("maxGrade").value;
-//  const url = window.buildDemandUrl(division, minGrade, maxGrade, 1, 200);
-//
-//  console.log("test")
-//  for (let i = 0; i < localStorage.length; i++) {
-//    const key = localStorage.key(i);
-//    console.log(key, localStorage.getItem(key));
-//  }
-//
-//  fetch(url, {credentials: "include"})
-//    .then(res => res.json())
-//    .then(data => {
-//      console.log(data)
-//      window.allDemands = data.demands || [];
-//      window.currentPage = 1;
-//      window.renderFilteredTable();
-//    })
-//    .catch(error => {
-//      document.getElementById("output").textContent = `Error: ${error.message}`;
-//    });
-//};
 
 window.fetchAndRenderDemands = function () {
   const division = document.getElementById("division").value;
