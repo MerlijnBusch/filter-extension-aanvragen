@@ -26,6 +26,9 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 );
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+    if (/aanvragen\/\d{8}$/.test(sender.tab.url)) {
+        return;
+    }
     if (msg.type === "INJECT_SCRIPT" && sender.tab) {
         chrome.scripting.executeScript({
             target: { tabId: sender.tab.id },
