@@ -54,15 +54,6 @@
         <input type="text" id="filterCustomer" placeholder="e.g. Rabobank" class="full-width">
         <label>Role</label>
         <input type="text" id="filterRole" placeholder="e.g. DevOps" class="full-width">
-      </div>
-      <div class="form-group form-block">
-        <label>Working Location</label>
-        <input type="text" id="filterLocation" placeholder="e.g. Utrecht" class="full-width">
-        <label>Skills</label>
-        <input type="text" id="filterSkills" placeholder="e.g. Python" class="full-width">
-      </div>
-
-      <div class="form-group form-block">
         <label for="offerStatus">Offer Status</label>
         <select id="filterOfferStatus" class="flex-1">
           <option value="">-- Geen filter --</option>
@@ -78,7 +69,12 @@
           <option value="9">Ingezet</option>
           <option value="10">Vervallen</option>
         </select>
-
+      </div>
+      <div class="form-group form-block">
+        <label>Working Location</label>
+        <input type="text" id="filterLocation" placeholder="e.g. Utrecht" class="full-width">
+        <label>Skills</label>
+        <input type="text" id="filterSkills" placeholder="e.g. Python" class="full-width">
         <label for="filterMab">MAB</label>
         <select id="filterMab" class="flex-1">
           <option value="">--</option>
@@ -86,17 +82,14 @@
           <option value="false">Nee</option>
         </select>
       </div>
-
     </div>
   </details>
   <div class="form-grid">
     <div class="form-group form-block">
-      <label>&nbsp;</label>
       <button id="sendRequest" class="full-width">Load Demands</button>
     </div>
     <div class="form-group form-block">
-      <label>&nbsp;</label>
-      <button id="clearFilters" class="full-width mt-8">Clear Filters</button>
+      <button id="clearFilters" class="full-width">Clear Filters</button>
     </div>
   </div>
   <div class="pagination-bar-container">
