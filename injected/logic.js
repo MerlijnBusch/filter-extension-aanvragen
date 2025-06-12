@@ -26,6 +26,11 @@ window.addEventListener("clearFilters", () => {
     document.getElementById("filterCustomer").value = "";
     document.getElementById("filterLocation").value = "";
     document.getElementById("filterSkills").value = "";
+    document.getElementById("filterMab").value = "";
+    document.getElementById("filterOfferStatus").value = "";
+    document.getElementById("minGrade").value = "";
+    document.getElementById("maxGrade").value = "";
+
     window.currentPage = 1;
     window.renderFilteredTable();
 });

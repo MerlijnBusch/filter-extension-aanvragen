@@ -56,7 +56,7 @@
         <input type="text" id="filterRole" placeholder="e.g. DevOps" class="full-width">
         <label for="offerStatus">Offer Status</label>
         <select id="filterOfferStatus" class="flex-1">
-          <option value="">-- Geen filter --</option>
+          <option value="">-- No filter --</option>
           <option value="0">Onbekend</option>
           <option value="1">Niet aangeboden</option>
           <option value="2">Afgewezen</option>
@@ -77,7 +77,7 @@
         <input type="text" id="filterSkills" placeholder="e.g. Python" class="full-width">
         <label for="filterMab">MAB</label>
         <select id="filterMab" class="flex-1">
-          <option value="">--</option>
+          <option value="">-- No filter --</option>
           <option value="true">Ja</option>
           <option value="false">Nee</option>
         </select>
